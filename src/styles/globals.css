@@ -1,0 +1,319 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --bg: #f6f9f9;
+  --bg-elevated: #ffffff;
+  --bg-muted: #eef4f3;
+  --text: #101c1b;
+  --text-muted: #47605c;
+  --border: #d7e4e1;
+  --accent: #0f766e;
+  --accent-strong: #115e59;
+  --accent-soft: #2dd4bf;
+  --status-active: #0d9488;
+  --focus-ring: #0f766e;
+  --shadow-color: 175 40% 40%;
+
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #071414;
+  --bg-elevated: #0c1e1d;
+  --bg-muted: #102826;
+  --text: #eafbf7;
+  --text-muted: #9fc2bc;
+  --border: #1c3835;
+  --accent: #2dd4bf;
+  --accent-strong: #5eead4;
+  --accent-soft: #14b8a6;
+  --status-active: #34d399;
+  --focus-ring: #5eead4;
+  --shadow-color: 175 70% 3%;
+
+  color-scheme: dark;
+}
+
+@theme {
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-bg-muted: var(--bg-muted);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-status-active: var(--status-active);
+
+  --font-sans:
+    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: -60px;
+  left: 1rem;
+  z-index: 100;
+  background: var(--accent);
+  color: #ffffff;
+  padding: 0.65rem 1.1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.section {
+  scroll-margin-top: 5.5rem;
+}
+
+.container-page {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .container-page {
+    padding-inline: 2rem;
+  }
+}
+
+.card {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px -18px hsl(var(--shadow-color) / 0.6);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  border-radius: 999px;
+  background-color: var(--bg-muted);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.35rem;
+  border-radius: 0.65rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition:
+    transform 0.15s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text);
+  border: 1.5px solid var(--border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.gradient-text {
+  background: linear-gradient(120deg, var(--accent-strong), var(--accent), var(--accent-soft));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-glow {
+  background: radial-gradient(60% 60% at 50% 0%, hsl(175 70% 45% / 0.16), transparent 70%);
+}
+
+.nav-link {
+  position: relative;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.92rem;
+  padding-block: 0.25rem;
+}
+
+.nav-link[aria-current="true"] {
+  color: var(--accent);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.nav-link[aria-current="true"]::after {
+  transform: scaleX(1);
+}
+
+/* Active status indicator: a small pulsing dot paired with visible text
+   (never color alone) so the "currently teaching" state reads clearly to
+   sighted and screen-reader users alike. */
+.status-dot {
+  position: relative;
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background-color: var(--status-active);
+  flex-shrink: 0;
+}
+
+.status-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background-color: var(--status-active);
+  animation: status-pulse 2.2s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-dot::after {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+@keyframes status-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+/* Ecosystem connector diagram */
+.ecosystem-connector {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, var(--border), var(--accent-soft), var(--border));
+  min-width: 2rem;
+}
+
+@media (max-width: 767px) {
+  .ecosystem-connector {
+    width: 2px;
+    height: 2rem;
+    background: linear-gradient(180deg, var(--border), var(--accent-soft), var(--border));
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .section {
+    scroll-margin-top: 0;
+  }
+
+  .card {
+    box-shadow: none !important;
+    border-color: #cccccc !important;
+    break-inside: avoid;
+  }
+
+  .container-page {
+    max-width: 100%;
+    padding-inline: 0;
+  }
+}

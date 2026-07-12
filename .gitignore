@@ -1,0 +1,19 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+*.tsbuildinfo
+
+# Editor / OS / tooling
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.claude/
+
+# Env
+.env
+.env.local
+
+# Logs
+npm-debug.log*
