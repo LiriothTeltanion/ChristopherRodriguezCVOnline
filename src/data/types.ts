@@ -35,6 +35,8 @@ export type ProfessionalRole = {
   attributionNote?: LocalizedText;
   verification: ContentVerification[];
   logo?: string;
+  /** Small flag icon rendered next to the location text, when relevant. */
+  locationFlag?: "us" | "ve" | "co";
 };
 
 export type ProfessionalMetric = {

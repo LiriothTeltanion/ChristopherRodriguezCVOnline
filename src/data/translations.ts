@@ -31,6 +31,13 @@ export const translations = {
       switchToLight: "Switch to light theme",
       switchToDark: "Switch to dark theme",
     },
+    colorThemeSwitcher: {
+      label: "Accent color",
+      teal: "Teal",
+      golden: "Golden",
+      azul: "Blue",
+      selected: "Selected",
+    },
     hero: {
       eyebrow: "English education for real-world communication",
       headline: "Helping learners communicate with confidence",
@@ -214,6 +221,13 @@ export const translations = {
       label: "Cambiar tema",
       switchToLight: "Cambiar a tema claro",
       switchToDark: "Cambiar a tema oscuro",
+    },
+    colorThemeSwitcher: {
+      label: "Color de acento",
+      teal: "Verde azulado",
+      golden: "Dorado",
+      azul: "Azul",
+      selected: "Seleccionado",
     },
     hero: {
       eyebrow: "Educación en inglés para la comunicación real",

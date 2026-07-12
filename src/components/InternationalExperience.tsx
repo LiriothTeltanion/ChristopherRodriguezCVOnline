@@ -1,10 +1,15 @@
-import { MapPin, Wifi } from "lucide-react";
+import { Wifi } from "lucide-react";
 import { useApp } from "../context/AppContext";
+import { ColombiaFlagIcon, UsaFlagIcon, VenezuelaFlagIcon } from "./icons/FlagIcons";
 
 export default function InternationalExperience() {
   const { t } = useApp();
   const { countries } = t.internationalExperience;
-  const countryList = [countries.venezuela, countries.colombia, countries.unitedStates];
+  const countryList = [
+    { ...countries.venezuela, Flag: VenezuelaFlagIcon },
+    { ...countries.colombia, Flag: ColombiaFlagIcon },
+    { ...countries.unitedStates, Flag: UsaFlagIcon },
+  ];
 
   return (
     <section
@@ -29,8 +34,8 @@ export default function InternationalExperience() {
       <div className="mt-10 grid gap-6 sm:grid-cols-3">
         {countryList.map((country) => (
           <div key={country.name} className="card p-6">
-            <div className="flex items-center gap-2 text-[var(--accent)]">
-              <MapPin size={18} aria-hidden="true" />
+            <div className="flex items-center gap-2">
+              <country.Flag size={20} className="rounded-[2px]" aria-hidden="true" />
               <h3 className="font-bold text-[var(--text)]">{country.name}</h3>
             </div>
             <ul className="mt-4 space-y-2">

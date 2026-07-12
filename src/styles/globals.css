@@ -36,6 +36,41 @@
   color-scheme: dark;
 }
 
+/* Color theme variants — an accent-only overlay on top of light/dark.
+   --status-active intentionally never changes here: the "currently
+   teaching" pulse stays green/teal regardless of accent, per spec. */
+:root[data-color-theme="golden"] {
+  --accent: #b45309;
+  --accent-strong: #92400e;
+  --accent-soft: #f59e0b;
+  --focus-ring: #b45309;
+  --shadow-color: 38 70% 40%;
+}
+
+:root[data-theme="dark"][data-color-theme="golden"] {
+  --accent: #fbbf24;
+  --accent-strong: #fcd34d;
+  --accent-soft: #f59e0b;
+  --focus-ring: #fbbf24;
+  --shadow-color: 38 70% 3%;
+}
+
+:root[data-color-theme="azul"] {
+  --accent: #1d4ed8;
+  --accent-strong: #1e3a8a;
+  --accent-soft: #38bdf8;
+  --focus-ring: #1d4ed8;
+  --shadow-color: 217 60% 45%;
+}
+
+:root[data-theme="dark"][data-color-theme="azul"] {
+  --accent: #60a5fa;
+  --accent-strong: #93c5fd;
+  --accent-soft: #38bdf8;
+  --focus-ring: #60a5fa;
+  --shadow-color: 217 70% 3%;
+}
+
 @theme {
   --color-bg: var(--bg);
   --color-bg-elevated: var(--bg-elevated);
@@ -202,7 +237,11 @@ body {
 }
 
 .hero-glow {
-  background: radial-gradient(60% 60% at 50% 0%, hsl(175 70% 45% / 0.16), transparent 70%);
+  background: radial-gradient(
+    60% 60% at 50% 0%,
+    color-mix(in srgb, var(--accent) 16%, transparent),
+    transparent 70%
+  );
 }
 
 .nav-link {

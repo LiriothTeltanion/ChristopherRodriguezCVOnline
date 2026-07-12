@@ -24,6 +24,7 @@ export const currentRoles: ProfessionalRole[] = [
       en: "New York, United States",
       es: "Nueva York, Estados Unidos",
     },
+    locationFlag: "us",
     workFormat: {
       en: "Remote · Online Education",
       es: "Remoto · Educación en Línea",
@@ -70,6 +71,7 @@ export const currentRoles: ProfessionalRole[] = [
       en: "San Cristóbal, Venezuela",
       es: "San Cristóbal, Venezuela",
     },
+    locationFlag: "ve",
     workFormat: {
       en: "University Continuing Education",
       es: "Formación Universitaria Continua",

@@ -3,6 +3,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import type { LanguageCode, ProfessionalRole } from "../data/types";
 import { ActiveStatusBadge } from "./ActiveStatusBadge";
+import { ColombiaFlagIcon, UsaFlagIcon, VenezuelaFlagIcon } from "./icons/FlagIcons";
+
+const FLAG_ICONS = {
+  us: UsaFlagIcon,
+  ve: VenezuelaFlagIcon,
+  co: ColombiaFlagIcon,
+};
 
 type ExperienceDetailsProps = {
   role: ProfessionalRole;
@@ -29,6 +36,7 @@ export function ExperienceDetails({
 }: ExperienceDetailsProps) {
   const [expanded, setExpanded] = useState(false);
   const panelId = useId();
+  const FlagIcon = role.locationFlag ? FLAG_ICONS[role.locationFlag] : null;
 
   return (
     <li className="relative pb-8 pl-8 last:pb-0">
@@ -48,7 +56,8 @@ export function ExperienceDetails({
         ) : null}
       </div>
       <p className="text-sm font-medium text-[var(--text-muted)]">{role.organization}</p>
-      <p className="text-xs text-[var(--text-muted)]">
+      <p className="flex items-center gap-1.5 text-xs text-[var(--text-muted)]">
+        {FlagIcon ? <FlagIcon size={14} className="rounded-[2px]" aria-hidden="true" /> : null}
         {role.location[lang]} · {role.dates[lang]}
       </p>
       <p className="mt-2 text-sm leading-relaxed text-[var(--text)]">

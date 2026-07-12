@@ -18,6 +18,7 @@ export const previousExperience: ProfessionalRole[] = [
       en: "Colombia",
       es: "Colombia",
     },
+    locationFlag: "co",
     workFormat: {
       en: "Online Education",
       es: "Educación Virtual",
@@ -52,6 +53,7 @@ export const previousExperience: ProfessionalRole[] = [
       en: "Venezuela",
       es: "Venezuela",
     },
+    locationFlag: "ve",
     dates: {
       en: "March 2018 – December 2018",
       es: "Marzo de 2018 – Diciembre de 2018",
@@ -82,6 +84,7 @@ export const previousExperience: ProfessionalRole[] = [
       en: "Colombia",
       es: "Colombia",
     },
+    locationFlag: "co",
     dates: {
       en: "February 2015 – December 2015",
       es: "Febrero de 2015 – Diciembre de 2015",
@@ -112,6 +115,7 @@ export const previousExperience: ProfessionalRole[] = [
       en: "North Carolina, United States",
       es: "Carolina del Norte, Estados Unidos",
     },
+    locationFlag: "us",
     dates: {
       en: "July 2002 – July 2003",
       es: "Julio de 2002 – Julio de 2003",

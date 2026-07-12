@@ -4,6 +4,7 @@ import { useApp } from "../context/AppContext";
 import { profile } from "../data/profile";
 import LanguageSelector from "./LanguageSelector";
 import ThemeToggle from "./ThemeToggle";
+import { ColorThemeSwitcher } from "./ColorThemeSwitcher";
 
 const NAV_IDS = [
   "about",
@@ -92,7 +93,8 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden items-center gap-3 lg:flex">
+          <ColorThemeSwitcher />
           <ThemeToggle />
           <LanguageSelector />
         </div>
@@ -124,7 +126,8 @@ export default function Header() {
                 {navLabel[id]}
               </a>
             ))}
-            <div className="mt-3 flex items-center gap-2 px-2">
+            <div className="mt-3 flex items-center gap-3 px-2">
+              <ColorThemeSwitcher />
               <ThemeToggle />
               <LanguageSelector />
             </div>

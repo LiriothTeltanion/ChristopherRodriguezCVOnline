@@ -6,6 +6,13 @@ import { ActiveStatusBadge } from "./ActiveStatusBadge";
 import { ExternalInstitutionLink } from "./ExternalInstitutionLink";
 import { institutionLinks, immersionAboutTitle } from "../data/institutions";
 import { useApp } from "../context/AppContext";
+import { ColombiaFlagIcon, UsaFlagIcon, VenezuelaFlagIcon } from "./icons/FlagIcons";
+
+const FLAG_ICONS = {
+  us: UsaFlagIcon,
+  ve: VenezuelaFlagIcon,
+  co: ColombiaFlagIcon,
+};
 
 type CurrentRoleCardProps = {
   role: ProfessionalRole;
@@ -19,6 +26,7 @@ export function CurrentRoleCard({ role, lang, Icon }: CurrentRoleCardProps) {
   const panelId = useId();
   const statusLabel = role.founder ? t.common.founderStatus : t.common.currentStatus;
   const links = institutionLinks[role.id] ?? [];
+  const FlagIcon = role.locationFlag ? FLAG_ICONS[role.locationFlag] : null;
 
   return (
     <div className="card flex h-full flex-col gap-4 p-6">
@@ -44,7 +52,10 @@ export function CurrentRoleCard({ role, lang, Icon }: CurrentRoleCardProps) {
 
       <div>
         <h3 className="text-lg font-bold text-[var(--text)]">{role.role[lang]}</h3>
-        <p className="mt-1 text-sm text-[var(--text-muted)]">{role.location[lang]}</p>
+        <p className="mt-1 flex items-center gap-1.5 text-sm text-[var(--text-muted)]">
+          {FlagIcon ? <FlagIcon size={16} className="rounded-[2px]" aria-hidden="true" /> : null}
+          {role.location[lang]}
+        </p>
         <div className="mt-2 flex flex-wrap gap-2 text-xs text-[var(--text-muted)]">
           {role.workFormat ? <span className="tag">{role.workFormat[lang]}</span> : null}
           <span className="tag">{role.dates[lang]}</span>
