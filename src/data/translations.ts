@@ -66,6 +66,8 @@ export const translations = {
         "His experience includes primary, secondary, university, adult, corporate, and online education across Venezuela, Colombia, and the United States.",
       ],
       publicationsTitle: "Published Works",
+      linkedinCta: "Connect on LinkedIn",
+      linkedinAriaLabel: "Open Christopher Rodríguez's LinkedIn profile",
     },
     currentTeaching: {
       title: "Currently Teaching",
@@ -248,6 +250,8 @@ export const translations = {
         "Su experiencia abarca educación primaria, secundaria, universitaria, de adultos, corporativa y virtual en Venezuela, Colombia y Estados Unidos.",
       ],
       publicationsTitle: "Obras Publicadas",
+      linkedinCta: "Conectar en LinkedIn",
+      linkedinAriaLabel: "Abrir el perfil de LinkedIn de Christopher Rodríguez",
     },
     currentTeaching: {
       title: "Actividad Docente Actual",

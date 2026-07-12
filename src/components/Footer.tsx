@@ -1,7 +1,10 @@
 import { useApp } from "../context/AppContext";
 import { profile } from "../data/profile";
 import { institutionLinks } from "../data/institutions";
-import { InstagramIcon, TiktokIcon, YoutubeIcon } from "./icons/BrandIcons";
+import { InstagramIcon, LinkedinIcon, TiktokIcon, YoutubeIcon } from "./icons/BrandIcons";
+
+const iconLinkClass =
+  "inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-muted)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]";
 
 const socialIcons: Record<string, typeof YoutubeIcon> = {
   "survival-english-youtube": YoutubeIcon,
@@ -21,6 +24,16 @@ export default function Footer() {
         </p>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
+            <a
+              href={profile.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${t.about.linkedinAriaLabel} ${t.common.externalLinkSr}`}
+              className={iconLinkClass}
+            >
+              <LinkedinIcon size={17} aria-hidden="true" />
+            </a>
+            <span aria-hidden="true" className="h-5 w-px bg-[var(--border)]" />
             {socialLinks.map((link) => {
               const SocialIcon = socialIcons[link.id] ?? YoutubeIcon;
               return (
@@ -30,7 +43,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${link.ariaLabel[lang]} ${t.common.externalLinkSr}`}
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-muted)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                  className={iconLinkClass}
                 >
                   <SocialIcon size={17} aria-hidden="true" />
                 </a>

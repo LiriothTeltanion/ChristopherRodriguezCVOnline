@@ -58,6 +58,8 @@ export const profile = {
     email: "inglesdesupervivenciaa@gmail.com",
   },
 
+  linkedinUrl: "https://www.linkedin.com/in/jack-christopher-rodr%C3%ADguez-601b2816/",
+
   statusLabel: {
     en: "Currently Active",
     es: "Actualmente Activo",
