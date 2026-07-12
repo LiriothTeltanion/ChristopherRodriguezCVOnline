@@ -2,12 +2,19 @@ import { Briefcase } from "lucide-react";
 import { useApp } from "../context/AppContext";
 import { currentRoles, survivalEnglishExtras } from "../data/currentRoles";
 import { institutionLinks } from "../data/institutions";
-import { YoutubeIcon } from "./icons/BrandIcons";
+import { InstagramIcon, TiktokIcon, YoutubeIcon } from "./icons/BrandIcons";
+
+const socialIcons: Record<string, typeof YoutubeIcon> = {
+  "survival-english-youtube": YoutubeIcon,
+  "survival-english-tiktok": TiktokIcon,
+  "survival-english-instagram": InstagramIcon,
+};
 
 export default function SurvivalEnglishSection() {
   const { t, lang } = useApp();
   const survivalEnglish = currentRoles.find((role) => role.id === "survival-english")!;
-  const youtubeLink = institutionLinks["survival-english"];
+  const socialLinks = institutionLinks["survival-english"] ?? [];
+  const youtubeLink = socialLinks.find((link) => link.id === "survival-english-youtube")!;
 
   return (
     <section
@@ -80,6 +87,29 @@ export default function SurvivalEnglishSection() {
           <a href="#contact" className="btn btn-secondary">
             {t.survivalEnglish.secondaryCta}
           </a>
+        </div>
+
+        <div className="mt-6 flex flex-wrap items-center gap-3 border-t border-[var(--border)] pt-6">
+          <p className="text-xs font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+            {t.survivalEnglish.followTitle}
+          </p>
+          <div className="flex items-center gap-2">
+            {socialLinks.map((link) => {
+              const SocialIcon = socialIcons[link.id] ?? YoutubeIcon;
+              return (
+                <a
+                  key={link.id}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${link.ariaLabel[lang]} ${t.common.externalLinkSr}`}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-muted)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                >
+                  <SocialIcon size={17} aria-hidden="true" />
+                </a>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

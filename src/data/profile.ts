@@ -58,10 +58,6 @@ export const profile = {
     email: "inglesdesupervivenciaa@gmail.com",
   },
 
-  socialLinks: {
-    youtube: "https://www.youtube.com/@Inglesdesupervivencia/featured",
-  },
-
   statusLabel: {
     en: "Currently Active",
     es: "Actualmente Activo",

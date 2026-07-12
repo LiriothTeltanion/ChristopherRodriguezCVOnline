@@ -20,31 +20,61 @@ export const immersionAboutTitle: LocalizedText = {
   es: "Acerca de IMMERSION",
 };
 
-export const institutionLinks: Record<string, ExternalLink> = {
-  immersion: {
-    id: "immersion-website",
-    label: {
-      en: "Visit the IMMERSION Website",
-      es: "Visitar el Sitio de IMMERSION",
+export const institutionLinks: Record<string, ExternalLink[]> = {
+  immersion: [
+    {
+      id: "immersion-website",
+      label: {
+        en: "Visit the IMMERSION Website",
+        es: "Visitar el Sitio de IMMERSION",
+      },
+      url: "https://www.immersion-school.com/",
+      ariaLabel: {
+        en: "Open the official IMMERSION website in a new tab",
+        es: "Abrir el sitio oficial de IMMERSION en una pestaña nueva",
+      },
+      verified: true,
     },
-    url: "https://www.immersion-school.com/",
-    ariaLabel: {
-      en: "Open the official IMMERSION website in a new tab",
-      es: "Abrir el sitio oficial de IMMERSION en una pestaña nueva",
+  ],
+  "survival-english": [
+    {
+      id: "survival-english-youtube",
+      label: {
+        en: "Visit Survival English on YouTube",
+        es: "Visitar Survival English en YouTube",
+      },
+      url: "https://www.youtube.com/@Inglesdesupervivencia/featured",
+      ariaLabel: {
+        en: "Open the official Survival English YouTube channel in a new tab",
+        es: "Abrir el canal oficial de YouTube de Survival English en una pestaña nueva",
+      },
+      verified: true,
     },
-    verified: true,
-  },
-  "survival-english": {
-    id: "survival-english-youtube",
-    label: {
-      en: "Visit Survival English on YouTube",
-      es: "Visitar Survival English en YouTube",
+    {
+      id: "survival-english-tiktok",
+      label: {
+        en: "Visit Survival English on TikTok",
+        es: "Visitar Survival English en TikTok",
+      },
+      url: "https://www.tiktok.com/@inglesdesupervivencia",
+      ariaLabel: {
+        en: "Open the official Survival English TikTok profile in a new tab",
+        es: "Abrir el perfil oficial de TikTok de Survival English en una pestaña nueva",
+      },
+      verified: true,
     },
-    url: "https://www.youtube.com/@Inglesdesupervivencia/featured",
-    ariaLabel: {
-      en: "Open the official Survival English YouTube channel in a new tab",
-      es: "Abrir el canal oficial de YouTube de Survival English en una pestaña nueva",
+    {
+      id: "survival-english-instagram",
+      label: {
+        en: "Visit Survival English on Instagram",
+        es: "Visitar Survival English en Instagram",
+      },
+      url: "https://www.instagram.com/inglesdesupervivencia/",
+      ariaLabel: {
+        en: "Open the official Survival English Instagram profile in a new tab",
+        es: "Abrir el perfil oficial de Instagram de Survival English en una pestaña nueva",
+      },
+      verified: true,
     },
-    verified: true,
-  },
+  ],
 };

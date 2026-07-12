@@ -163,6 +163,7 @@ export const translations = {
       secondaryCta: "Ask About Professional Training",
       programAreasTitle: "Program Areas",
       trainingApproachTitle: "Training Approach",
+      followTitle: "Follow Survival English",
     },
     contact: {
       title: "Let's Talk About Your English Goals",
@@ -175,7 +176,6 @@ export const translations = {
     footer: {
       rights: "All rights reserved.",
       backToTop: "Back to top",
-      youtubeLabel: "Survival English on YouTube (opens in a new tab)",
     },
     common: {
       currentStatus: "Currently Active",
@@ -349,6 +349,7 @@ export const translations = {
       secondaryCta: "Consultar sobre Capacitación Profesional",
       programAreasTitle: "Áreas de Programas",
       trainingApproachTitle: "Enfoque de Capacitación",
+      followTitle: "Seguir a Survival English",
     },
     contact: {
       title: "Conversemos sobre tus Objetivos con el Inglés",
@@ -361,7 +362,6 @@ export const translations = {
     footer: {
       rights: "Todos los derechos reservados.",
       backToTop: "Volver arriba",
-      youtubeLabel: "Survival English en YouTube (se abre en una pestaña nueva)",
     },
     common: {
       currentStatus: "Actualmente Activo",

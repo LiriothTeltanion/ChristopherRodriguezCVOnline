@@ -18,7 +18,7 @@ export function CurrentRoleCard({ role, lang, Icon }: CurrentRoleCardProps) {
   const [expanded, setExpanded] = useState(false);
   const panelId = useId();
   const statusLabel = role.founder ? t.common.founderStatus : t.common.currentStatus;
-  const link = institutionLinks[role.id];
+  const links = institutionLinks[role.id] ?? [];
 
   return (
     <div className="card flex h-full flex-col gap-4 p-6">
@@ -121,12 +121,17 @@ export function CurrentRoleCard({ role, lang, Icon }: CurrentRoleCardProps) {
                 </details>
               ) : null}
 
-              {link ? (
-                <ExternalInstitutionLink
-                  link={link}
-                  lang={lang}
-                  externalSrSuffix={t.common.externalLinkSr}
-                />
+              {links.length ? (
+                <div className="flex flex-wrap gap-2">
+                  {links.map((link) => (
+                    <ExternalInstitutionLink
+                      key={link.id}
+                      link={link}
+                      lang={lang}
+                      externalSrSuffix={t.common.externalLinkSr}
+                    />
+                  ))}
+                </div>
               ) : null}
             </div>
           </motion.div>
