@@ -1,5 +1,6 @@
 import type { LocalizedText, ProfessionalRole } from "./types";
 import { immersionAttributionNote, immersionInstitutionalContext } from "./institutions";
+import survivalEnglishLogo from "../assets/survival-english-logo.jpg";
 
 /**
  * The three roles Christopher currently, simultaneously holds. displayOrder
@@ -119,6 +120,7 @@ export const currentRoles: ProfessionalRole[] = [
       en: "Independent English Education Venture",
       es: "Emprendimiento Independiente de Enseñanza de Inglés",
     },
+    logo: survivalEnglishLogo,
     location: {
       en: "Independent Educational Venture",
       es: "Emprendimiento Educativo Independiente",

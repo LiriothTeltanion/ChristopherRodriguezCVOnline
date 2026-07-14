@@ -1,17 +1,31 @@
 import { Compass, GraduationCap, Globe } from "lucide-react";
 import { useApp } from "../context/AppContext";
 import { profile } from "../data/profile";
+import survivalEnglishLogo from "../assets/survival-english-logo.jpg";
 
 export default function ProfessionalEcosystem() {
   const { t } = useApp();
   const { nodes } = t.ecosystem;
 
   const items = [
-    { id: "immersion", Icon: Globe, name: nodes.immersion.name, focus: nodes.immersion.focus },
-    { id: "unet", Icon: GraduationCap, name: nodes.unet.name, focus: nodes.unet.focus },
+    {
+      id: "immersion",
+      Icon: Globe,
+      logo: null,
+      name: nodes.immersion.name,
+      focus: nodes.immersion.focus,
+    },
+    {
+      id: "unet",
+      Icon: GraduationCap,
+      logo: null,
+      name: nodes.unet.name,
+      focus: nodes.unet.focus,
+    },
     {
       id: "survival-english",
       Icon: Compass,
+      logo: survivalEnglishLogo,
       name: nodes.survivalEnglish.name,
       focus: nodes.survivalEnglish.focus,
     },
@@ -50,7 +64,16 @@ export default function ProfessionalEcosystem() {
             <div key={item.id} className="flex w-full flex-col items-center md:w-auto md:flex-row">
               {index > 0 ? <div className="ecosystem-connector" aria-hidden="true" /> : null}
               <div className="flex w-full max-w-[13rem] flex-col items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--bg-muted)] px-5 py-4 text-center">
-                <item.Icon aria-hidden="true" size={22} className="text-[var(--accent)]" />
+                {item.logo ? (
+                  <img
+                    src={item.logo}
+                    alt=""
+                    aria-hidden="true"
+                    className="h-9 w-9 rounded-lg object-cover"
+                  />
+                ) : (
+                  <item.Icon aria-hidden="true" size={22} className="text-[var(--accent)]" />
+                )}
                 <p className="text-sm font-bold text-[var(--text)]">{item.name}</p>
                 <p className="text-xs text-[var(--text-muted)]">{item.focus}</p>
               </div>

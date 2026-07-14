@@ -23,22 +23,33 @@ export default function SurvivalEnglishSection() {
       aria-labelledby="survival-english-title"
     >
       <div className="card overflow-hidden p-8">
-        <div className="flex items-center gap-2 text-[var(--accent)]">
-          <Briefcase size={20} aria-hidden="true" />
-          <p className="text-sm font-semibold uppercase tracking-wide">
-            {survivalEnglishExtras.organizationType[lang]}
-          </p>
-        </div>
+        <div className="flex items-start gap-4">
+          {survivalEnglish.logo ? (
+            <img
+              src={survivalEnglish.logo}
+              alt=""
+              className="h-16 w-16 shrink-0 rounded-xl border border-[var(--border)] object-cover sm:h-20 sm:w-20"
+            />
+          ) : null}
+          <div>
+            <div className="flex items-center gap-2 text-[var(--accent)]">
+              <Briefcase size={20} aria-hidden="true" />
+              <p className="text-sm font-semibold uppercase tracking-wide">
+                {survivalEnglishExtras.organizationType[lang]}
+              </p>
+            </div>
 
-        <h2
-          id="survival-english-title"
-          className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl"
-        >
-          {survivalEnglish.organization}
-        </h2>
-        <p className="gradient-text mt-1 text-lg font-semibold">
-          {survivalEnglishExtras.brandPurpose[lang]}
-        </p>
+            <h2
+              id="survival-english-title"
+              className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl"
+            >
+              {survivalEnglish.organization}
+            </h2>
+            <p className="gradient-text mt-1 text-lg font-semibold">
+              {survivalEnglishExtras.brandPurpose[lang]}
+            </p>
+          </div>
+        </div>
 
         <p className="mt-4 max-w-3xl leading-relaxed text-[var(--text)]">
           {survivalEnglish.fullDescription[lang]}

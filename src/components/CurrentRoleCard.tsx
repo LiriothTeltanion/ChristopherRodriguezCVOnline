@@ -34,9 +34,13 @@ export function CurrentRoleCard({ role, lang, Icon }: CurrentRoleCardProps) {
         <div className="flex items-center gap-3">
           <div
             aria-hidden="true"
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--bg-muted)] text-[var(--accent)]"
+            className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--bg-muted)] text-[var(--accent)]"
           >
-            <Icon size={22} aria-hidden="true" />
+            {role.logo ? (
+              <img src={role.logo} alt="" className="h-full w-full object-cover" />
+            ) : (
+              <Icon size={22} aria-hidden="true" />
+            )}
           </div>
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-[var(--text-muted)]">
