@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://christopherrodriguez.example.com/sitemap.xml
+Sitemap: https://liriothteltanion.github.io/ChristopherRodriguezCVOnline/sitemap.xml

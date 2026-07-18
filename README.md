@@ -2,6 +2,8 @@
 
 Bilingual (English/Spanish) professional portfolio for **Christopher Rodríguez** (Jack Christopher Rodríguez Belandria), an English educator, ESL specialist, curriculum designer and published author. Built as a fully static single-page application with React, TypeScript and Vite.
 
+**Live portfolio:** [liriothteltanion.github.io/ChristopherRodriguezCVOnline](https://liriothteltanion.github.io/ChristopherRodriguezCVOnline/) · **Current version:** `1.1.0` · [Changelog](CHANGELOG.md)
+
 ## Current professional status
 
 Christopher holds three simultaneous, active roles, each modeled explicitly in the data layer:
@@ -11,6 +13,21 @@ Christopher holds three simultaneous, active roles, each modeled explicitly in t
 3. **Founder & English Instructor at Survival English** — his independent venture, since 2017.
 
 All three are marked `current: true` with a manually controlled `displayOrder` (see [`src/data/currentRoles.ts`](src/data/currentRoles.ts)) so Survival English's earlier start date (2017) never causes it to sort above IMMERSION's — order is deliberate, not date-derived.
+
+## Real product tour
+
+The visuals below are generated from the real application with public portfolio content. The animated tour cycles through the English desktop hero, current teaching roles and Spanish mobile experience; readers who prefer reduced motion receive the static desktop capture.
+
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="./public/images/portfolio-desktop.jpg" />
+  <img src="./public/images/portfolio-tour.svg" width="100%" alt="Three-scene tour of Christopher Rodríguez's real bilingual portfolio: English desktop hero, current teaching roles and Spanish mobile layout" />
+</picture>
+
+| Desktop interface                                                                                                                     | Spanish mobile interface                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="./public/images/portfolio-desktop.jpg" alt="Christopher Rodríguez portfolio English desktop hero in the dark teal theme" /> | <img src="./public/images/portfolio-mobile.jpg" alt="Christopher Rodríguez portfolio Spanish mobile hero with responsive controls" /> |
+
+[Open the current-teaching capture](./public/images/portfolio-current-teaching.jpg) · [Open the 1280 × 640 social card](./public/images/christopher-portfolio-social-preview.png)
 
 ## Features
 
@@ -43,13 +60,16 @@ The dev server runs at `http://localhost:5173`.
 
 ## Available scripts
 
-| Command           | Description                                                      |
-| ----------------- | ---------------------------------------------------------------- |
-| `npm run dev`     | Start the Vite dev server                                        |
-| `npm run build`   | Type-check (`tsc -b`) and build the production bundle to `dist/` |
-| `npm run preview` | Preview the production build locally                             |
-| `npm run lint`    | Run ESLint over the whole project                                |
-| `npm run format`  | Format the codebase with Prettier                                |
+| Command                   | Description                                                      |
+| ------------------------- | ---------------------------------------------------------------- |
+| `npm run dev`             | Start the Vite dev server                                        |
+| `npm run build`           | Type-check (`tsc -b`) and build the production bundle to `dist/` |
+| `npm run preview`         | Preview the production build locally                             |
+| `npm run lint`            | Run ESLint over the whole project                                |
+| `npm run typecheck`       | Run the TypeScript project build without emitting app assets     |
+| `npm test`                | Verify public URLs, JSON-LD, manifest and visual asset contracts |
+| `npm run capture:visuals` | Rebuild real desktop/mobile captures and social visuals          |
+| `npm run format`          | Format the codebase with Prettier                                |
 
 ## Project structure
 
@@ -68,8 +88,12 @@ src/
   styles/         globals.css (design tokens, pulse animation, print styles)
 public/
   icons/          Favicon
-  images/         Open Graph cover (SVG placeholder, see below)
-  site.webmanifest, robots.txt
+  images/         Real product captures, accessible tour and social preview
+  site.webmanifest, robots.txt, sitemap.xml
+scripts/
+  verify-public-metadata.mjs
+tools/visuals/
+  capture-portfolio.mjs
 ```
 
 ## How to update the content
@@ -86,10 +110,13 @@ All editable content lives under `src/data/`, with **no JSX changes required** f
 - **SEO / meta**: [`src/data/seo.ts`](src/data/seo.ts).
 - **All other UI chrome copy** (nav, buttons, section titles/subtitles, footer): [`src/data/translations.ts`](src/data/translations.ts).
 
-## Replacing placeholder assets
+## Public metadata and visual assets
 
-- `public/icons/favicon.svg`, `public/images/og-cover.svg` — simple vector placeholders. Replace with a real photo/logo when available.
-- `index.html` and `src/data/seo.ts` reference `https://christopher-rodriguez.example/` as a **placeholder domain** (the `.example` TLD is IANA-reserved and intentionally does not resolve). Replace every occurrence with the real production domain before deploying, including the JSON-LD `@id` values, `canonical`, `og:url` and `og:image` tags.
+- The canonical production URL is `https://liriothteltanion.github.io/ChristopherRodriguezCVOnline/` across HTML metadata, JSON-LD, the manifest, robots and sitemap.
+- `public/images/christopher-portfolio-social-preview.png` is the 1280 × 640 Open Graph/Twitter image. It is generated from the real interface and kept below 1 MB.
+- `public/images/portfolio-desktop.jpg`, `portfolio-mobile.jpg` and `portfolio-current-teaching.jpg` are public-content captures. They contain no accounts, private browser state or unpublished client information.
+- `public/images/portfolio-tour.svg` embeds the reviewed captures and stops cycling under `prefers-reduced-motion`.
+- Run `npm run capture:visuals` after a material visual release, inspect every output and then run `npm test`. The capture workflow is documented in [`tools/visuals/README.md`](tools/visuals/README.md).
 - Survival English's official social profiles — [YouTube](https://www.youtube.com/@Inglesdesupervivencia/featured), [TikTok](https://www.tiktok.com/@inglesdesupervivencia), [Instagram](https://www.instagram.com/inglesdesupervivencia/) — are set as an array in `institutionLinks["survival-english"]` in `src/data/institutions.ts`. That single array feeds the Survival English card's expanded view, the dedicated Survival English section (primary CTA + "Follow" icon row), the footer icons, and the Person JSON-LD `sameAs`. Add further real profiles the same way once provided; each entry needs a matching icon in `src/components/icons/BrandIcons.tsx` if lucide-react doesn't already export one (it dropped most brand/logo glyphs, so YouTube, TikTok and Instagram are hand-inlined there).
 
 ## Facts still requiring confirmation
@@ -110,16 +137,17 @@ These are flagged with `verificationRecommended` in the data and are displayed w
 
 ## Deployment (GitHub Pages)
 
-[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) builds and deploys automatically on every push to `main` (installs with `npm ci`, runs `lint` and `build`, then uploads `dist/` as a Pages artifact and deploys it), using the official `actions/configure-pages`, `actions/upload-pages-artifact` and `actions/deploy-pages` actions with minimal permissions.
+The production site is deployed at:
 
-### `base` path (read this before your first deploy)
+```text
+https://liriothteltanion.github.io/ChristopherRodriguezCVOnline/
+```
 
-`vite.config.ts` currently sets `base: "/"`, which is correct only if:
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) builds and deploys automatically on every push to `main` (installs with `npm ci`, runs lint, type-check, metadata/asset tests and the production build, then uploads `dist/` as a Pages artifact and deploys it), using the official `actions/configure-pages`, `actions/upload-pages-artifact` and `actions/deploy-pages` actions with minimal permissions.
 
-- the repo is named `<your-username>.github.io` (a user/org page, served at the domain root), **or**
-- you attach a custom domain (via a `CNAME` file) to the Pages site.
+### GitHub Pages base path
 
-If instead you create a normal project repo (e.g. `christopher-portfolio`), GitHub serves it at `https://<username>.github.io/christopher-portfolio/`, and you must change `vite.config.ts` to `base: "/christopher-portfolio/"` (exact repo name, case-sensitive) before building — otherwise assets will 404.
+`vite.config.ts` deliberately uses `base: "/ChristopherRodriguezCVOnline/"`. Public HTML asset links use Vite's `%BASE_URL%` token, while canonical and social metadata use the complete production URL. Keep all three values synchronized if the repository or host ever changes.
 
 ### One-time setup
 
@@ -141,9 +169,9 @@ You can also do steps 2 onward from **GitHub Desktop**: "Add local repository" �
 
 ### Other static hosts
 
-For Netlify, Vercel, or any other static host: `npm run build` outputs to `dist/` — upload that folder directly (`base: "/"` is correct for those since they serve from the domain root).
+This release is configured specifically for the GitHub Pages project path `base: "/ChristopherRodriguezCVOnline/"`. Do not upload its existing `dist/` unchanged to the root of a Netlify, Vercel or other custom-domain deployment: first change `vite.config.ts` to `base: "/"`, rebuild with `npm run build`, and verify the generated asset URLs. Keep the current project-path base when the alternative host serves the site from `/ChristopherRodriguezCVOnline/` instead of the domain root.
 
-Whichever host you use, update the placeholder domain references noted above (`christopher-rodriguez.example`) to the real production URL first.
+If another host becomes canonical, update the production URL contract in `index.html`, the manifest, robots, sitemap, README and `scripts/verify-public-metadata.mjs` together.
 
 ## License
 

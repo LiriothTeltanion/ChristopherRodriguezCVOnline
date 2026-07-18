@@ -2,13 +2,15 @@
   "name": "Christopher Rodríguez — English Educator & ESL Specialist",
   "short_name": "Christopher Rodríguez",
   "description": "Bilingual professional portfolio of Christopher Rodríguez, English educator, ESL specialist and curriculum designer.",
-  "start_url": "/",
+  "id": "/ChristopherRodriguezCVOnline/",
+  "start_url": "/ChristopherRodriguezCVOnline/",
+  "scope": "/ChristopherRodriguezCVOnline/",
   "display": "standalone",
   "background_color": "#0b1120",
   "theme_color": "#0f766e",
   "icons": [
     {
-      "src": "/icons/favicon.svg",
+      "src": "./icons/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }

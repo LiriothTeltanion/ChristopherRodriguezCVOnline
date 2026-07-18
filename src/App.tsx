@@ -31,6 +31,12 @@ function DocumentMeta() {
     const ogTitle = document.querySelector('meta[property="og:title"]');
     ogTitle?.setAttribute("content", seo.pageTitle[lang]);
 
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    twitterTitle?.setAttribute("content", seo.pageTitle[lang]);
+
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    twitterDescription?.setAttribute("content", seo.metaDescription[lang]);
+
     const ogLocale = document.querySelector('meta[property="og:locale"]');
     ogLocale?.setAttribute("content", lang === "en" ? "en_US" : "es_ES");
 

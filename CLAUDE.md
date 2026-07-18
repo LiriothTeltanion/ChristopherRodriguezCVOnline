@@ -39,7 +39,7 @@ Use planning before large edits. Keep tool calls focused. Ask before destructive
 <!-- NOVADEV FINAL STUDIO v5.3 GENERATED -->
 # 📁 011_CVCR — Project Context
 
-Remote: `Lirioth/ChristopherRodriguezCVOnline`
+Remote: `LiriothTeltanion/ChristopherRodriguezCVOnline`
 Branch: `main`
 Detected stack: Node.js, Vite
 

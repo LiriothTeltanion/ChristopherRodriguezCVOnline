@@ -1,7 +1,7 @@
 {
   "name": "christopher-rodriguez-portfolio",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "description": "Christopher Rodríguez — English Educator, ESL Specialist & Curriculum Designer. Bilingual (EN/ES) professional portfolio.",
   "scripts": {
@@ -9,6 +9,9 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "lint": "eslint .",
+    "typecheck": "tsc -b --pretty false",
+    "test": "node scripts/verify-public-metadata.mjs",
+    "capture:visuals": "node tools/visuals/capture-portfolio.mjs",
     "format": "prettier --write ."
   },
   "dependencies": {
