@@ -8,8 +8,8 @@ version: 2
 # Broken releases are usually yanked or patched in that window, and major
 # versions, the ones that can break things, wait a month.
 #
-# Minor and patch updates arrive grouped. This repository has no pull-request checks,
-# so every update waits for Kevin's review before it reaches the live site.
+# Minor and patch updates arrive grouped. They merge on their own once the required
+# checks pass (.github/workflows/dependabot-auto-merge.yml).
 # Major updates arrive one by one and wait for Kevin.
 
 updates:
