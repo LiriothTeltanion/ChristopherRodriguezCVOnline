@@ -49,6 +49,8 @@ The visuals below are generated from the real application with public portfolio 
 - [Lucide React](https://lucide.dev/) for icons
 - [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) for linting/formatting
 
+Built by Kevin Cusnir with AI-assisted tooling; he reviewed, tested and can explain every change.
+
 ## Getting started
 
 ```bash
