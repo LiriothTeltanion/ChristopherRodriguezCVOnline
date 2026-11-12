@@ -4,6 +4,16 @@ Bilingual (English/Spanish) professional portfolio for **Christopher Rodríguez*
 
 **Live portfolio:** [liriothteltanion.github.io/ChristopherRodriguezCVOnline](https://liriothteltanion.github.io/ChristopherRodriguezCVOnline/) · **Current version:** `1.1.0` · [Changelog](CHANGELOG.md)
 
+## Client project at a glance
+
+| | |
+|---|---|
+| **Client need** | One professional site that presents an English educator's three concurrent teaching roles, international experience and services to students and institutions in English and Spanish. |
+| **What I delivered** | Design and build of a bilingual single-page portfolio with light/dark themes, an accent-colour picker, keyboard and screen-reader support, a claim-verification layer for every figure, and GitHub Pages delivery. |
+| **Built with** | React 19, TypeScript, Vite, Tailwind CSS 4, Framer Motion, ESLint and Prettier. |
+| **Content ownership** | Biography, roles and images belong to Christopher Rodríguez; the site code is my work. |
+
+
 ## Current professional status
 
 Christopher holds three simultaneous, active roles, each modeled explicitly in the data layer:
@@ -49,7 +59,7 @@ The visuals below are generated from the real application with public portfolio 
 - [Lucide React](https://lucide.dev/) for icons
 - [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) for linting/formatting
 
-Built by Kevin Cusnir with AI-assisted tooling; he reviewed, tested and can explain every change.
+Built with AI-assisted tooling; I reviewed, tested and can explain every change.
 
 ## Getting started
 
