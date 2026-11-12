@@ -80,7 +80,7 @@ export default function Header() {
           <span className="ms-1 text-[var(--accent)]">.</span>
         </a>
 
-        <nav aria-label="Main" className="hidden items-center gap-6 lg:flex">
+        <nav aria-label="Main" className="hidden items-center gap-4 lg:flex xl:gap-6">
           {NAV_IDS.map((id) => (
             <a
               key={id}
